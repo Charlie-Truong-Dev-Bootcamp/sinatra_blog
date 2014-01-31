@@ -1,0 +1,32 @@
+<h3>Write Your Post Below</h2>
+<form method = "post" action="/edit/<%=@post.id%>">
+  <ul>
+    <li>
+      <label for="title">Title</label>
+      <input name="title" type="text" size="55" value = "<%=@post.title%>">
+    </li>
+    <li>
+      <label for="body">Body</label>
+      <textarea name="body" rows="10" cols="55"> <%= @post.body %> </textarea>
+    </li>
+    <li>
+      <label for="author">Author</label>
+      <input name="author" type="text" size="20" value= "<%=@post.author%>">
+    </li>
+    <li>
+      <label for="tag">Tags</label>
+      <input name="tag" type="text" size="20" value="<%=@tags%>">
+    </li>
+    <li>
+      <input type="Submit" value="Submit">
+    </li>
+  </ul>
+</form>
+<form method = "post" action="/delete/<%=@post.id%>">
+  <ul>
+    <li>
+      <input type="Submit" value="Delete Post">
+    </li>
+  </ul>
+</form>
+

@@ -1,0 +1,28 @@
+<h3>Write Your Post Below</h2>
+<form method = "post" action="/create">
+  <ul>
+    <li>
+      <label for="title">Title</label>
+      <input name="title" type="text" size="55" value = "<%= @entered_data[:title] %>">
+    </li>
+    <li>
+      <label for="body">Body</label>
+      <textarea name="body" rows="10" cols="55"><%= @entered_data[:body] %> </textarea>
+    </li>
+    <li>
+      <label for="author">Author</label>
+      <input name="author" type="text" size="20" value= "<%= @entered_data[:author] %>">
+    </li>
+    <li>
+      <label for="tag">Tags</label>
+      <input name="tag" type="text" size="20" value="<%= @entered_data[:tag] %>">
+    </li>
+    <li>
+      <input type="Submit" value="Submit">
+    </li>
+  </ul>
+</form>
+<% @errors.each do |field, message| %>
+  <p class="error">The <%= field %>  <%= message[0] %>.</p>
+<% end %>
+

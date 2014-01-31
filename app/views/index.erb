@@ -1,0 +1,27 @@
+<% @posts.each do |post| %>
+  <div class="post">
+    <h2 class="post_title"><%= post.title %></h2>
+    
+    <% if @view == "single" %>
+      <a href="/edit/<%=post.id%>">Edit</a>
+    <% end %>
+    
+    <h4 class="post_body">Posted: <%= post.create_date_only %></h4>
+    <h4 class="post_body">By: <%= post.author %></h4>
+    
+    <% @view == "list" ? body = post.body.split("\n").shift(3) : body = post.body.split("\n") %>
+    <% body.each do |paragraph| %>
+      <p class="post_body"><%= paragraph %></p>
+    <% end %>
+
+    <% if @view == "list" %>
+      <p><a href="/post/<%= post.id %>">Read More...</a></p>
+    <% end %>
+
+    <span>Tags:</span>  
+    <% post.tags.each do |tag| %>
+      <a href="/posts_by_tag/<%= tag.name %>"><%= tag.name %></a>
+    <% end %> 
+  </div>
+<% end %>
+
